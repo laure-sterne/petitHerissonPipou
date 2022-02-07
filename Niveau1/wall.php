@@ -91,8 +91,8 @@
                 while ($post = $lesInformations->fetch_assoc())
                 {
 
-                    echo "<pre>" . print_r($post, 1) . "</pre>";
-                    ?>                
+                    // echo "<pre>" . print_r($post, 1) . "</pre>";
+                    // ?>                
                     <article>
                         <h3>
                             <time datetime='2020-02-01 11:12:13' > <?php echo $post['created'] ?></time>
