@@ -33,7 +33,7 @@
                 <section>
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez les informations de l'utilisatrice
-                        n° <?php echo $_GET['user_id'] ?></p>
+                        n° <?php echo intval($_GET['user_id']) ?></p>
 
                 </section>
             </aside>
@@ -46,7 +46,7 @@
                  * Documentation : https://www.php.net/manual/fr/reserved.variables.get.php
                  * ... mais en résumé c'est une manière de passer des informations à la page en ajoutant des choses dans l'url
                  */
-                $userId = $_GET['user_id'];
+                $userId = intval($_GET['user_id']);
 
                 /**
                  * Etape 2: se connecter à la base de donnée
@@ -56,17 +56,18 @@
                 /**
                  * Etape 3: récupérer le nom de l'utilisateur
                  */
-                $laQuestionEnSql = "SELECT `users`.*, "
-                        . "count(DISTINCT `posts`.`id`) as totalpost, "
-                        . "count(DISTINCT `given`.`post_id`) as totalgiven, "
-                        . "count(DISTINCT `recieved`.`user_id`) as totalrecieved "
-                        . "FROM `users` "
-                        . "LEFT JOIN `posts` ON `posts`.`user_id`=`users`.`id` "
-                        . "LEFT JOIN `likes` as `given` ON `given`.`user_id`=`users`.`id` "
-                        . "LEFT JOIN `likes` as `recieved` ON `recieved`.`post_id`=`posts`.`id` "
-                        . "WHERE `users`.`id`='" . intval($userId)."'"
-                        . "GROUP BY `users`.`id`"
-                        ;
+                $laQuestionEnSql = "
+                    SELECT users.*, 
+                    count(DISTINCT posts.id) as totalpost, 
+                    count(DISTINCT given.post_id) as totalgiven, 
+                    count(DISTINCT recieved.user_id) as totalrecieved 
+                    FROM users 
+                    LEFT JOIN posts ON posts.user_id=users.id 
+                    LEFT JOIN likes as given ON given.user_id=users.id 
+                    LEFT JOIN likes as recieved ON recieved.post_id=posts.id 
+                    WHERE users.id = '$userId' 
+                    GROUP BY users.id
+                    ";
                 $lesInformations = $mysqli->query($laQuestionEnSql);
                 if ( ! $lesInformations)
                 {
