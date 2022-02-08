@@ -71,7 +71,8 @@
                     SELECT posts.content, posts.created, 
                     users.alias as author_name, 
                     users.id as user_id,
-                    COUNT(likes.id) as like_number, GROUP_CONCAT(DISTINCT tags.label) AS taglist 
+                    COUNT(likes.id) as like_number, GROUP_CONCAT(DISTINCT tags.label) AS taglist,
+                    GROUP_CONCAT( DISTINCT tags.id) AS taglistid
                     FROM posts
                     JOIN users ON  users.id=posts.user_id
                     LEFT JOIN posts_tags ON posts.id = posts_tags.post_id  
@@ -81,12 +82,28 @@
                     GROUP BY posts.id
                     ORDER BY posts.created DESC  
                     ";
+
+                $laQuestionTag = "SELECT * FROM `tags`ORDER BY id ASC";
+                $lesInfoTag = $mysqli->query($laQuestionTag);
+                $tags = $lesInfoTag->fetch_assoc();
+                echo "<pre>" . print_r($tags, 1) . "</pre>";
+
                 $lesInformations = $mysqli->query($laQuestionEnSql);
+                
+                // $array = [];
+                //     // for ($i = 1; $i <= sizeof($taglist); $i++)
+                //     // {
+                //     //     $array += [$taglist[$i] => $taglistid[$i]];
+                //     // }
+                //     for ($i = 0; $i < 4; $i++) {
+                //         $array += ['A' => 'B'];
+                //     };
+                // echo "<pre>" . print_r($array) . "</pre>";
+                
                 if ( ! $lesInformations)
                 {
                     echo("Échec de la requete : " . $mysqli->error);
                 }
-
                 /**
                  * Etape 4: @todo Parcourir les messsages et remplir correctement le HTML avec les bonnes valeurs php
                  */
@@ -94,7 +111,8 @@
                 {
 
                     // echo "<pre>" . print_r($post, 1) . "</pre>";
-                    // ?>                
+                    // echo "<pre>" . print_r($tag, 1) . "</pre>";
+                    ?>               
                     <article>
                         <h3>
                             <time datetime='2020-02-01 11:12:13' > <?php echo $post['created'] ?></time>
@@ -105,7 +123,7 @@
                         </div>                                            
                         <footer>
                             <small>♥ <?php echo $post['like_number'] ?></small>
-                            <a href="">#<?php echo $post['taglist'] ?></a>
+                            <a href="tags.php?tag_id=<?php echo $post['tag.id'] ?>">#<?php echo $post['taglist'] ?></a>
                         </footer>
                     </article>
                 <?php } ?>
@@ -115,3 +133,4 @@
         </div>
     </body>
 </html>
+
