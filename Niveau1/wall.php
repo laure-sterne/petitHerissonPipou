@@ -84,21 +84,19 @@
                     ";
 
                 $laQuestionTag = "SELECT * FROM `tags`ORDER BY id ASC";
+
                 $lesInfoTag = $mysqli->query($laQuestionTag);
-                $tags = $lesInfoTag->fetch_assoc();
-                echo "<pre>" . print_r($tags, 1) . "</pre>";
+
+                $corresp = [];
+
+                while ($tags = $lesInfoTag->fetch_assoc())
+                {
+                    $corresp += [$tags[label] => $tags[id]];
+                };
+                echo "<pre>" . print_r($corresp, 1) . "</pre>"; 
 
                 $lesInformations = $mysqli->query($laQuestionEnSql);
                 
-                // $array = [];
-                //     // for ($i = 1; $i <= sizeof($taglist); $i++)
-                //     // {
-                //     //     $array += [$taglist[$i] => $taglistid[$i]];
-                //     // }
-                //     for ($i = 0; $i < 4; $i++) {
-                //         $array += ['A' => 'B'];
-                //     };
-                // echo "<pre>" . print_r($array) . "</pre>";
                 
                 if ( ! $lesInformations)
                 {
