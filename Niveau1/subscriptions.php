@@ -4,11 +4,12 @@
         <meta charset="utf-8">
         <title>ReSoC - Mes abonnements</title> 
         <meta name="author" content="Julien Falconnet">
-        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="./style.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
-            <img src="resoc.jpg" alt="Logo de notre réseau social"/>
+            <a href='admin.php'><img src="hedgehog.png" alt="Logo de notre réseau social"/></a>
             <nav id="menu">
                 <a href="news.php">Actualités</a>
                 <a href="wall.php?user_id=5">Mur</a>
@@ -27,7 +28,7 @@
         </header>
         <div id="wrapper">
             <aside>
-                <img src="user.jpg" alt="Portrait de l'utilisatrice"/>
+                <img src="hedgehog_profile.png" alt="Portrait de l'utilisatrice"/>
                 <section>
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez la liste des personnes dont
@@ -59,7 +60,7 @@
                 while ($userId = $lesInformations->fetch_assoc())
                 {  ?>           
                     <article>
-                        <img src="user.jpg" alt="blason"/>
+                        <img src="hedgehog_profile.png" alt="blason"/>
                         <h3><a href="wall.php?user_id=<?php echo $userId['id'] ?>"><?php echo $userId['alias'] ?></a></h3>
                         <p><?php echo $userId['id'] ?></p>                    
                     </article>

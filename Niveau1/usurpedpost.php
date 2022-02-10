@@ -7,11 +7,12 @@ session_start();
         <meta charset="utf-8">
         <title>ReSoC - Post d'usurpateur</title> 
         <meta name="author" content="Julien Falconnet">
-        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="./style.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
-            <img src="resoc.jpg" alt="Logo de notre réseau social"/>
+            <a href='admin.php'><img src="hedgehog.png" alt="Logo de notre réseau social"/></a>
             <nav id="menu">
                 <a href="news.php">Actualités</a>
                 <a href="wall.php?user_id=5">Mur</a>
@@ -43,7 +44,7 @@ session_start();
                     /**
                      * BD
                      */
-                    $mysqli = new mysqli("localhost", "root", "root", "socialnetwork_tests");
+                    $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
                     /**
                      * Récupération de la liste des auteurs
                      */
@@ -65,21 +66,21 @@ session_start();
                     if ($enCoursDeTraitement)
                     {
                         // on ne fait ce qui suit que si un formulaire a été soumis.
-                        // Etape 2: récupérer ce qu'il y a dans le formulaire @todo: c'est là que votre travaille se situe
+                        // Etape 2: récupérer ce qu'il y a dans le formulaire @todo: c'est là que votre travail se situe
                         // observez le résultat de cette ligne de débug (vous l'effacerez ensuite)
                         echo "<pre>" . print_r($_POST, 1) . "</pre>";
                         // et complétez le code ci dessous en remplaçant les ???
-                        $authorId = $_POST['???'];
-                        $postContent = $_POST['???'];
+                        $authorId = $_POST['auteur'];
+                        $postContent = $_POST['message'];
 
 
                         //Etape 3 : Petite sécurité
-                        // pour éviter les injection sql : https://www.w3schools.com/sql/sql_injection.asp
+                        // pour éviter les injections sql : https://www.w3schools.com/sql/sql_injection.asp
                         $authorId = intval($mysqli->real_escape_string($authorId));
                         $postContent = $mysqli->real_escape_string($postContent);
                         //Etape 4 : construction de la requete
                         $lInstructionSql = "INSERT INTO posts "
-                                . "(id, user_id, content, created, permalink, post_id) "
+                                . "(id, user_id, content, created, post_id) "
                                 . "VALUES (NULL, "
                                 . $authorId . ", "
                                 . "'" . $postContent . "', "
@@ -100,7 +101,7 @@ session_start();
                     }
                     ?>                     
                     <form action="usurpedpost.php" method="post">
-                        <input type='hidden' name='???' value='achanger'>
+                        <input type='hidden' name='id' value='achanger'>
                         <dl>
                             <dt><label for='auteur'>Auteur</label></dt>
                             <dd><select name='auteur'>
