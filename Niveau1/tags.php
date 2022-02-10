@@ -86,6 +86,19 @@
                     GROUP BY posts.id
                     ORDER BY posts.created DESC  
                     ";
+
+                // $laQuestionTag = "SELECT * FROM `tags`ORDER BY id ASC";
+
+                // $lesInfoTag = $mysqli->query($laQuestionTag);
+
+                // $corresp = [];
+
+                // while ($tags = $lesInfoTag->fetch_assoc())
+                // {
+                //     $corresp += [$tags['label'] => $tags['id']];
+                // };
+                // echo "<pre>" . print_r($corresp, 1) . "</pre>"; 
+
                 $lesInformations = $mysqli->query($laQuestionEnSql);
                 if ( ! $lesInformations)
                 {

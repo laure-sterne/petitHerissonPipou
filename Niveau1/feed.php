@@ -76,7 +76,8 @@
                     users.alias as author_name,
                     users.id as user_id,   
                     count(likes.id) as like_number,  
-                    GROUP_CONCAT(DISTINCT tags.label) AS taglist 
+                    GROUP_CONCAT(DISTINCT tags.label) AS taglist,
+                    GROUP_CONCAT(DISTINCT tags.id) AS taglistid
                     FROM followers 
                     JOIN users ON users.id=followers.followed_user_id
                     JOIN posts ON posts.user_id=users.id
@@ -111,7 +112,7 @@
                         </div>                                            
                         <footer>
                             <small>♥ <?php echo $post['like_number'] ?></small>
-                            <a href="">#<?php echo $post['taglist'] ?></a>
+                            <a href="tags.php?tag_id=<?php echo $post['taglistid'] ?>">#<?php echo $post['taglist'] ?></a>
                         </footer>
                     </article>
                 <?php } ?>

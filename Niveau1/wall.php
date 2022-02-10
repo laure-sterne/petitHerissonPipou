@@ -72,7 +72,7 @@
                     users.alias as author_name, 
                     users.id as user_id,
                     COUNT(likes.id) as like_number, GROUP_CONCAT(DISTINCT tags.label) AS taglist,
-                    GROUP_CONCAT( DISTINCT tags.id) AS taglistid
+                    GROUP_CONCAT(DISTINCT tags.id) AS taglistid
                     FROM posts
                     JOIN users ON  users.id=posts.user_id
                     LEFT JOIN posts_tags ON posts.id = posts_tags.post_id  
@@ -83,20 +83,7 @@
                     ORDER BY posts.created DESC  
                     ";
 
-                $laQuestionTag = "SELECT * FROM `tags`ORDER BY id ASC";
-
-                $lesInfoTag = $mysqli->query($laQuestionTag);
-
-                $corresp = [];
-
-                while ($tags = $lesInfoTag->fetch_assoc())
-                {
-                    $corresp += [$tags[label] => $tags[id]];
-                };
-                echo "<pre>" . print_r($corresp, 1) . "</pre>"; 
-
                 $lesInformations = $mysqli->query($laQuestionEnSql);
-                
                 
                 if ( ! $lesInformations)
                 {
@@ -121,7 +108,7 @@
                         </div>                                            
                         <footer>
                             <small>♥ <?php echo $post['like_number'] ?></small>
-                            <a href="tags.php?tag_id=<?php echo $post['tag.id'] ?>">#<?php echo $post['taglist'] ?></a>
+                            <a href="tags.php?tag_id=<?php echo $post['taglistid'] ?>">#<?php echo $post['taglist'] ?></a>
                         </footer>
                     </article>
                 <?php } ?>
