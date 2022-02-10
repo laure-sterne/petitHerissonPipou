@@ -12,6 +12,7 @@ body>header{
     width:80em;
     margin:0 auto 2em auto;    
     padding:0;
+    border-radius: 1em;
 
 }
 body>header img{
@@ -21,24 +22,25 @@ body>header #menu {
     display:flex;
     width:50%;
     align-items: stretch;
-    border-left: 1px solid #99b;
+    border-left: 1px solid #F8EACD;
 }
 body>header #menu a{
     flex:1;
     text-align: center;
     padding-top:2em;
-    border-right: 1px solid #99b;
+    border-right: 1px solid #F8EACD;
 }
 body>header a:hover
 {
-    background-color: #99b;
+    background-color: #F8EACD;
+    border-radius: 1em;
 }
 body>header ul{list-style: none;}
 body>header #user
 {
     margin-left: auto;
     flex:0.2;
-    border-left: 1px solid #99b;
+    border-left: 1px solid #F8EACD;
 }
 body>header #user>a{
     display:block;
@@ -53,20 +55,19 @@ body>header #user ul{
     margin:0;
     margin-left:-5em;
     background-color: #fff;
-    border: 1px solid #99b;
-
+    /* border: 1px solid #F8EACD; */
+    border-radius: 1em;
     z-index: 1;
 }
 body>header #user ul li a{
     display:block;
     width:10em;
     padding:1em;
-    border-bottom: 1px solid #99b;
+    /* border-bottom: 1px solid #F8EACD; */
 }
 body>header #user:hover ul{
     display:block;
 }
-
 
 #wrapper{
     display:flex;    
