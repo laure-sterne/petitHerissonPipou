@@ -20,7 +20,7 @@
                 /* On ne fait ce qui suit que si un formulaire a été soumis.
                 Etape 2 : récupérer ce qu'il y a dans le formulaire @todo => c'est là que votre travaille se situe
                 Observez le résultat de cette ligne de débug (vous l'effacerez ensuite) */
-                echo "<pre>" . print_r($_POST, 1) . "</pre>";
+                // echo "<pre>" . print_r($_POST, 1) . "</pre>";
                 // et complétez le code ci dessous en remplaçant les ???
                 $new_id = $POST['id'];
                 $new_email = $_POST['email'];
@@ -64,7 +64,7 @@
                     <dd><input type='text'name='alias'></dd>
                     <dt><label for='email'>E-Mail</label></dt>
                     <dd><input type='email' name='email'></dd>
-                    <dt><label for='motpasse'>Mot de passe</label></dt>
+                    <dt><label for='password'>Mot de passe</label></dt>
                     <dd><input type='password' name='password'></dd>
                 </dl>
                 <input type='submit'>
