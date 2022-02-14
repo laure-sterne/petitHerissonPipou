@@ -9,7 +9,6 @@ include './header.html' ?>
     Celui-ci est indiqué en paramètre GET de la page sous la forme user_id=...
     Documentation : https://www.php.net/manual/fr/reserved.variables.get.php
     ... mais en résumé c'est une manière de passer des informations à la page en ajoutant des choses dans l'url */
-
     $userId = $_SESSION['connected_id'];
 
     // Etape 2 : se connecter à la base de donnée
@@ -23,12 +22,12 @@ include './header.html' ?>
         $lesInformations = $mysqli->query($laQuestionEnSql);
         $user = $lesInformations->fetch_assoc();
         // @todo : afficher le résultat de la ligne ci dessous, remplacer XXX par l'alias et effacer la ligne ci-dessous
-        echo "<pre>" . print_r($user, 1) . "</pre>";
+        // echo "<pre>" . print_r($user, 1) . "</pre>";
         ?>
         <img src="hedgehog_profile.png" alt="Portrait de l'utilisatrice"/>
         <section>
             <h3>Présentation</h3>
-            <p>Sur cette page vous trouverez tous les message de l'utilisatrice :  <?php echo $user['alias'] ?> (n° <?php echo $userId ?>)</p>
+            <p>Sur cette page vous trouverez tous les messages de l'utilisatrice :  <?php echo $user['alias'] ?> (n° <?php echo $userId ?>)</p>
         </section>
     </aside>
 
