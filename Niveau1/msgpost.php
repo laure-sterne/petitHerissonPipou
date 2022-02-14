@@ -13,10 +13,13 @@ include './header.html' ?>
         <article>
             <h2>Poster un message</h2>
             <?php
+            $userId = $_SESSION['connected_id'];
+
             // BD
             $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
             // Récupération de la liste des auteurs
-            $laQuestionEnSql = "SELECT * FROM users";
+            $listAuteurs = [];
+            $laQuestionEnSql = "SELECT * FROM users WHERE id = $userId";
             $lesInformations = $mysqli->query($laQuestionEnSql);
             while ($user = $lesInformations->fetch_assoc()) {
                 $listAuteurs[$user['id']] = $user['alias'];
