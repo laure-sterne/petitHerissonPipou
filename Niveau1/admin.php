@@ -1,4 +1,6 @@
-<?php include './header.html' ?>
+<?php 
+session_start();
+include './header.html' ?>
 
 <?php
 /* Etape 1 : Ouvrir une connexion avec la base de donnée.

@@ -11,6 +11,7 @@ include './header.html' ?>
     ... mais en résumé c'est une manière de passer des informations à la page en ajoutant des choses dans l'url */
 
     $userId = $_SESSION['connected_id'];
+    $userId = intval($_GET['user_id']);
 
     // Etape 2 : se connecter à la base de donnée
     $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
@@ -23,7 +24,7 @@ include './header.html' ?>
         $lesInformations = $mysqli->query($laQuestionEnSql);
         $user = $lesInformations->fetch_assoc();
         // @todo : afficher le résultat de la ligne ci dessous, remplacer XXX par l'alias et effacer la ligne ci-dessous
-        echo "<pre>" . print_r($user, 1) . "</pre>";
+        // echo "<pre>" . print_r($user, 1) . "</pre>";
         ?>
         <img src="hedgehog_profile.png" alt="Portrait de l'utilisatrice"/>
         <section>

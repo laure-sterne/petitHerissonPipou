@@ -45,12 +45,11 @@ include './header.html' ?>
 
                 // Etape 4 : construction de la requête
                 $lInstructionSql = "INSERT INTO posts "
-                    . "(id, user_id, content, created, post_id) "
+                    . "(id, user_id, content, created, parent_id) "
                     . "VALUES (NULL, "
                     . $authorId . ", "
                     . "'" . $postContent . "', "
                     . "NOW(), "
-                    . "'', "
                     . "NULL);"
                 ;
 
