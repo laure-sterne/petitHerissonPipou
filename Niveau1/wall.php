@@ -30,6 +30,9 @@ include './header.html' ?>
             <h3>Présentation</h3>
             <p>Sur cette page vous trouverez tous les messages de l'utilisatrice :  <?php echo $user['alias'] ?> (n° <?php echo $userId ?>)</p>
         </section>
+        <a href="msgpost.php?user_id=<?php echo $userId ?>">
+            <button>Ecrire un message tout pipou</button>
+        </a> 
     </aside>
 
     <main>
