@@ -38,7 +38,7 @@ include './header.html' ?>
                 $passwdAVerifier = md5($passwdAVerifier);
                 // NB : md5 est pédagogique mais n'est pas recommandée pour une vraies sécurité
 
-                // Etape 5 : construction de la requete
+                // Etape 5 : Construction de la requête
                 $lInstructionSql = "SELECT * "
                     . "FROM users "
                     . "WHERE "
@@ -56,6 +56,7 @@ include './header.html' ?>
                     /* Etape 7 : Se souvenir que l'utilisateur s'est connecté pour la suite
                     Documentation : https://www.php.net/manual/fr/session.examples.basic.php */
                     $_SESSION['connected_id']=$user['id'];
+                    echo '<br /><a href="wall.php?user_id='.$user['id'].'">Mon mur</a>';
                 }
             } ?>
 
