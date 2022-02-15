@@ -27,11 +27,7 @@
                 <li><a href="settings.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Paramètres</a></li>
                 <li><a href="followers.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Mes suiveurs</a></li>
                 <li><a href="subscriptions.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Mes abonnements</a></li>
-                <li><a href="news.php" <?php
-                    session_start();
-                    unset($_SESSION['connected_id']);
-                    unset($_SESSION['alias']);
-                     ?>> Déconnexion</a></li>
+                <li><a href="logout.php">Deconnexion</a></li>
             </ul>
 
         </nav>
