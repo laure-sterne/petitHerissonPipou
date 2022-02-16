@@ -102,7 +102,7 @@ include './header.html' ?>
                 </div>
 
                 <footer>
-                    <small>♥ <?php echo $post['like_number'] ?></small>
+                    <small>♥ <?php echo $post['like_number'] ?> | <a href="followers.php?user_id=<?php echo $post['user_id'] ?>">Suivre</a> </small>
                     <a href="tags.php?tag_id=<?php echo $post['taglistid'] ?>"><?php echo '#'.$post['taglist'] ?></a>,
                 </footer>
             </article>
@@ -113,3 +113,7 @@ include './header.html' ?>
 
 </body>
 </html>
+
+if click user_post_id then 
+add connected_id to followed_id 
+following_id = post_id
