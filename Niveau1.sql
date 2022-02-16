@@ -64,29 +64,28 @@ DROP TABLE IF EXISTS `likes`;
 CREATE TABLE `likes` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
-  `post_id` int(10) UNSIGNED NOT NULL,
-  `count` int(10)
+  `post_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `likes`
 --
 
-INSERT INTO `likes` (`id`, `user_id`, `post_id`, `count`) VALUES
-(1, 3, 1, 0),
-(2, 3, 2, 12),
-(3, 3, 3, 5),
-(4, 3, 4, 7),
-(5, 3, 5, 0),
-(6, 3, 6, 6),
-(7, 3, 7, 8),
-(8, 3, 8, 5),
-(9, 3, 9, 76),
-(10, 3, 10, 23),
-(11, 1, 9, 7),
-(12, 2, 9, 8),
-(13, 4, 9, 0),
-(14, 5, 9, 7);
+INSERT INTO `likes` (`id`, `user_id`, `post_id`) VALUES
+(1, 3, 1),
+(2, 3, 2),
+(3, 3, 3),
+(4, 3, 4),
+(5, 3, 5),
+(6, 3, 6),
+(7, 3, 7),
+(8, 3, 8),
+(9, 3, 9),
+(10, 3, 10),
+(11, 1, 9),
+(12, 2, 9),
+(13, 4, 9),
+(14, 5, 9);
 
 -- --------------------------------------------------------
 

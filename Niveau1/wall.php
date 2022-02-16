@@ -74,11 +74,14 @@ include './header.html' ?>
                     <p><?php echo $post['content'] ?></p>
                 </div>                                            
                 <footer>
-                    <small>♥ <?php echo $post['like_number'] ?></small>
+                    <button onclick="addLike($_SESSION['connected_id'], $post['id'])">♥ <?php echo $post['like_number'] ?></button>
                     <a href="tags.php?tag_id=<?php echo $post['taglistid'] ?>">#<?php echo $post['taglist'] ?></a>
                 </footer>
             </article>
         <?php } ?>
+
+        
+        
     </main>
 
 </div>

@@ -34,6 +34,28 @@ include './header.html' ?>
         </article> -->
 
         <?php
+        function addLike($userId, $postId) {
+            $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
+        
+            $userId = intval($mysqli->real_escape_string($userId));
+            $postId = $mysqli->real_escape_string($postId);
+        
+            $lInstructionSql = "INSERT INTO likes "
+            . "(id, user_id, post_id) "
+            . "VALUES (NULL, "
+            . $userId . ", "
+            . $postId . ");"
+            ;
+        
+            echo $lInstructionSql;
+        
+            $ok = $mysqli->query($lInstructionSql);
+            if ( ! $ok) {
+                echo "Something wrong happened... " . $mysqli->error;
+            } else {
+                echo "Message liké";
+            }
+        }
         /* C'est ici que le travail PHP commence
         Votre mission si vous l'acceptez est de chercher dans la base
         de données la liste des 5 derniers messsages (posts) et de l'afficher
@@ -55,6 +77,7 @@ include './header.html' ?>
         $laQuestionEnSql = "
             SELECT posts.content,
             posts.created,
+            posts.id,
             users.alias as author_name,  
             users.id as user_id,
             count(likes.id) as like_number,  
@@ -90,7 +113,9 @@ include './header.html' ?>
             ci-dessous par les bonnes valeurs cachées dans la variable $post 
             on vous met le pied à l'étrier avec created
             avec le ? > ci-dessous on sort du mode php et on écrit du html comme on veut... mais en restant dans la boucle */
+            echo "<pre>" . print_r($post, 1) . "</pre>";
         ?>
+        
             <article>
                 <h3>
                     <time><?php echo $post['created'] ?></time>
@@ -102,7 +127,13 @@ include './header.html' ?>
                 </div>
 
                 <footer>
-                    <small>♥ <?php echo $post['like_number'] ?></small>
+                    <script type="text/javascript">
+                        function clickMe(){
+                        var result ="<?php addLike($_SESSION['connected_id'], $post['id']); ?>"
+                        document.write(result);
+                        }
+                    </script>
+                    <button onclick = "clickMe()">♥ <?php echo $post['like_number'] ?></button>
                     <a href="tags.php?tag_id=<?php echo $post['taglistid'] ?>"><?php echo '#'.$post['taglist'] ?></a>,
                 </footer>
             </article>
