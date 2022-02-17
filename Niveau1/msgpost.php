@@ -6,7 +6,7 @@ include './header.html' ?>
 
     <aside>
         <h2>Présentation</h2>
-        <p>Sur cette page, on peut poster un message en se connectant à son compte</p>
+        <p>Sur cette page, on peut poster un message en se connectant à son compte.</p>
     </aside>
 
     <main>
@@ -14,7 +14,6 @@ include './header.html' ?>
             <h2>Poster un message</h2>
             <?php
             $userId = $_SESSION['connected_id'];
-
             // BD
             $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
             // Récupération de la liste des auteurs

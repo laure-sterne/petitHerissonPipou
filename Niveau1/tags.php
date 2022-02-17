@@ -26,7 +26,7 @@ include './header.html' ?>
         <img src="hedgehog_profile.png" alt="Portrait de l'utilisatrice"/>
         <section>
             <h3>Présentation</h3>
-            <p>Sur cette page vous trouverez les derniers messages comportant
+            <p>Sur cette page, vous trouverez les derniers messages comportant
                 le mot-clé <?php echo $tag['label'] ?> (n° <?php echo $tagId ?>)
             </p>
         </section>

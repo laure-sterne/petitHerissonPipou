@@ -6,7 +6,7 @@ include './header.html' ?>
 
     <aside>
         <h2>Présentation</h2>
-        <p>Bienvenue sur notre réseau social.</p>
+        <p>Bienvenue sur notre réseau social !</p>
     </aside>
 
     <main>
@@ -71,7 +71,7 @@ include './header.html' ?>
                 <input type='submit'>
             </form>
 
-            <p> Pas de compte ? <a href='registration.php'>Inscrivez-vous.</a> </p>
+            <p> Pas de compte ? <a href='registration.php'> Inscrivez-vous.</a> </p>
         </article>
     </main>
 </div>

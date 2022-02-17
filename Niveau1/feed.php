@@ -28,7 +28,7 @@ include './header.html' ?>
         <img src="hedgehog_profile.png" alt="Portrait de l'utilisatrice"/>
         <section>
             <h3>Présentation</h3>
-                <p>Sur cette page vous trouverez tous les message des utilisatrices
+                <p>Sur cette page, vous trouverez tous les message des utilisatrices
                 auxquelles est abonnée l'utilisatrice <?php echo $user['alias'] ?> (n° <?php echo $userId ?>) </p>
         </section>
     </aside>
@@ -57,7 +57,7 @@ include './header.html' ?>
 
         $lesInformations = $mysqli->query($laQuestionEnSql);
         if ( ! $lesInformations) {
-            echo("Échec de la requete : " . $mysqli->error);
+            echo("Échec de la requête : " . $mysqli->error);
         }
 
         /* Etape 4 : @todo => Parcourir les messsages et remplir correctement le HTML avec les bonnes valeurs php

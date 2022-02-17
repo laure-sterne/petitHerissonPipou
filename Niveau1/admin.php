@@ -18,13 +18,13 @@ if ($mysqli->connect_errno) {
     <aside>
         <h2>Mots-clés</h2>
         <?php
-        // Etape 2 : trouver tous les mots clés
+        // Etape 2 : trouver tous les mots-clés
         $laQuestionEnSql = "SELECT * FROM `tags` LIMIT 50";
         $lesInformations = $mysqli->query($laQuestionEnSql);
 
         // Vérification
         if ( ! $lesInformations) {
-            echo("Échec de la requete : " . $mysqli->error);
+            echo("Échec de la requête : " . $mysqli->error);
             exit();
         }
 
@@ -53,7 +53,7 @@ if ($mysqli->connect_errno) {
 
         // Vérification
         if ( ! $lesInformations) {
-            echo("Échec de la requete : " . $mysqli->error);
+            echo("Échec de la requête : " . $mysqli->error);
             exit();
         }
 

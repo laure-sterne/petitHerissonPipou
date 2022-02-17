@@ -7,7 +7,7 @@ include './header.html' ?>
         <img src="hedgehog_profile.png" alt="Portrait de l'utilisatrice"/>
         <section>
             <h3>Présentation</h3>
-            <p>Sur cette page vous trouverez les derniers messages de tous les utilisatrices du site.</p>
+            <p>Sur cette page, vous trouverez les derniers messages de tous les utilisatrices du site.</p>
         </section>
     </aside>
 
@@ -95,14 +95,16 @@ include './header.html' ?>
                 <h3>
                     <time><?php echo $post['created'] ?></time>
                 </h3>
-                <address>par <a href="wall.php?user_id=<?php echo $post['user_id'] ?>"><?php echo $post['author_name'] ?></a></address>
+                <address>par <a href="wall.php?user_id=<?php echo $post['user_id'] ?>"><?php echo $post['author_name'] ?></a> 
+                <!-- | <a href="followers.php?user_id=<?php echo $post['user_id'] ?>">Suivre</a>  -->
+                </address>
 
                 <div>
                     <p><?php echo $post['content'] ?></p>
                 </div>
 
                 <footer>
-                    <small>♥ <?php echo $post['like_number'] ?> | <a href="followers.php?user_id=<?php echo $post['user_id'] ?>">Suivre</a> </small>
+                    <small>♥ <?php echo $post['like_number'] ?></small>
                     <a href="tags.php?tag_id=<?php echo $post['taglistid'] ?>"><?php echo '#'.$post['taglist'] ?></a>,
                 </footer>
             </article>
@@ -113,7 +115,7 @@ include './header.html' ?>
 
 </body>
 </html>
-
+<!-- 
 if click user_post_id then 
 add connected_id to followed_id 
-following_id = post_id
+following_id = post_id -->

@@ -28,7 +28,7 @@ include './header.html' ?>
         <img src="hedgehog_profile.png" alt="Portrait de l'utilisatrice"/>
         <section>
             <h3>Présentation</h3>
-            <p>Sur cette page vous trouverez tous les messages de l'utilisatrice :  <?php echo $user['alias'] ?> (n° <?php echo $userId ?>)</p>
+            <p>Sur cette page, vous trouverez tous les messages de l'utilisatrice :  <?php echo $user['alias'] ?> (n° <?php echo $userId ?>)</p>
         </section>
         <a href="msgpost.php?user_id=<?php echo $userId ?>">
             <button>Ecrire un message tout pipou</button>
